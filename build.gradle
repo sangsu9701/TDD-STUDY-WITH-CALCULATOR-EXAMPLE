@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // default 시작
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.42'
+    // default 종료
+
+    // java를 이용해 web application을 개발하려면 sevlet이 필요하다.
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    // 화면을 통해서 확인하는 것이 편하기 때문에 jstl
+    implementation 'javax.servlet:jstl:1.2'
+
+    // 로그 출력을 위한 dependencies도 추가
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    // password를 생성해주는 java library
+    implementation 'org.passay:passay:1.6.1'
+
+    // assertJ (테스트코드 작성을 위함)
+    testImplementation 'org.assertj:assertj-core:3.23.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
+
+    // default 시작
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // default 종료
+}
+
+test {
+    useJUnitPlatform()
+}
